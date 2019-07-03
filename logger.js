@@ -5,6 +5,9 @@
 const logger = {
   log: (data) => {
     console.log(data);
+  },
+  logInline: (data) => {
+    process.stdin.write(data);
   }
 };
 

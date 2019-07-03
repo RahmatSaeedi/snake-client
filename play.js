@@ -8,5 +8,5 @@ const { setupInput } = require('./input');
 
 
 log('Connecting ...');
-connect();
-setupInput();
+const tcpConnection = connect();
+setupInput(tcpConnection);

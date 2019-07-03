@@ -24,20 +24,6 @@ const client = {
     conn.on('connect',()=>{
       log('Connected to server...');
       conn.write('Name: SNK');
-
-      const MoveUp = () => setTimeout(() => {
-        conn.write('Move: up');
-        MoveUp();
-      }, 500);
-
-      const MoveRight = () => setTimeout(() => {
-        conn.write('Move: right');
-        MoveRight();
-      }, 50);
-
-      MoveUp();
-
-
     });
 
     /* DATA event */
