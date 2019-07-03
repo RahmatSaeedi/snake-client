@@ -9,15 +9,15 @@ Establishes connection to the server.
 ## [input.js](input.js)
 Handles all the logic related to setting up input stream and handling user input.
 
-| Key                                     | Command                          |
-|-----------------------------------------|----------------------------------|
-| `W` , `w` , `'8'` , `up arrow key`      | sends move up command            |
-| `A`  , `a`  , `'4'`  , `left arrow key` | sends move left command          |
-| `S`  , `s`  , `'2'`  , `down arrow key` | sends move down command          |
-| `D` , `d` , `'6'` , `right arrow key`   | sends move right command         |
-| `H`, `h`                                | sends canned message 'Hi there'  |
-| `B`, `b`                                | sends canned message 'Bye ppl'   |
-| `G`, `g`                                | sends canned message 'Got to go' |
+| Key                  | Command                          |
+|----------------------|----------------------------------|
+| `W` , `w` , `'8'`    | sends move up command            |
+| `A`  , `a`  , `'4'`  | sends move left command          |
+| `S`  , `s`  , `'2'`  | sends move down command          |
+| `D` , `d` , `'6'`    | sends move right command         |
+| `H`, `h`             | sends canned message 'Hi there'  |
+| `B`, `b`             | sends canned message 'Bye ppl'   |
+| `G`, `g`             | sends canned message 'Got to go' |
 
 
 ## [client.js](client.js)

@@ -31,9 +31,17 @@ const client = {
     conn.on('data', (data) => {
       log(`Server says: ${data}`);
     });
-
-
-
+    
+    conn.on('end', () => {
+      log('Connection Ended. Exitting application');
+      process.exit();
+    });
+    conn.on('error', (err) => {
+      log(err);
+      if (err.code === 'ECONNRESET') {
+        process.exit();
+      }
+    });
 
     return conn;
   }
