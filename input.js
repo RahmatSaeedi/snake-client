@@ -48,7 +48,7 @@ const input = {
         tcpConnection.write('Say: Bye ppl');
         log('Said: Bye ppl');
       } else {
-        log(data);
+        log('Unknown Command: `' + data + '`.');
       }
     });
 
