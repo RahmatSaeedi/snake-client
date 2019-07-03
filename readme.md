@@ -16,7 +16,8 @@ Prints `Connected to server...` upon successful connection.
 Sets the snake-name to `SNK` upon successful connection.
 Logs server responses to screen.
 
-
+## [logger.js](logger.js)
+Universal logger used throughout this application. Currently `console.log` is used to prinnt to the `console`.
 
 ## Supported commands by [Snek-Multiplayer server](https://github.com/lighthouse-labs/snek-multiplayer)
 Commands are passed by as `utf8` strings between [client]() and [server](https://github.com/lighthouse-labs/snek-multiplayer).

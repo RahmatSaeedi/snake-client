@@ -2,7 +2,7 @@
 */
 // jshint esversion : 6
 
-const log = console.log;
+const { log } = require('./logger');
 const input = {
   setupInput : () => {
     const stdin = process.stdin;

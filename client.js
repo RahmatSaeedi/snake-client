@@ -5,7 +5,7 @@
 */
 // jshint esversion : 6
 const net = require('net');
-const log = console.log;
+const { log } = require('./logger');
 
 /**
  * Establishes connection with the game server
