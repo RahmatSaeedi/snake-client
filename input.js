@@ -14,6 +14,7 @@ const input = {
     stdin.setRawMode(true);
     stdin.setEncoding('utf8');
     stdin.resume();
+    let previousMoveDirection, moveDirection, moveCommand;
   
     stdin.on('data', (data) => {
       /* ctrl + c ====> EXIT application */
@@ -21,20 +22,24 @@ const input = {
         process.exit();
       } else if (data === 'W' || data === 'w' || data === '8') {
         /* w, W, 8 ====> Move up */
-        tcpConnection.write('Move: up');
-        log('up');
+        if (previousMoveDirection !== 'down') {
+          moveDirection = 'up';
+        }
       } else if (data === 'S' || data === 's' || data === '2') {
         /* S, s, 2 ====> Move down */
-        tcpConnection.write('Move: down');
-        log('down');
+        if (previousMoveDirection !== 'up') {
+          moveDirection = 'down';
+        }
       } else if (data === 'D' || data === 'd' || data === '6') {
         /* D, d, 6 ====> Move right */
-        tcpConnection.write('Move: right');
-        log('right');
+        if (previousMoveDirection !== 'left') {
+          moveDirection = 'right';
+        }
       } else if (data === 'A' || data === 'a' || data === '4') {
         /* w, W, 8 ====> Move left */
-        tcpConnection.write('Move: left');
-        log('left');
+        if (previousMoveDirection !== 'right') {
+          moveDirection = 'left';
+        }
       } else if (data === 'H' || data === 'h') {
         /* H, h ====> Hi there */
         tcpConnection.write('Say: Hi there');
@@ -49,6 +54,17 @@ const input = {
         log('Said: Bye ppl');
       } else {
         log('Unknown Command: ' + data + '.');
+      }
+
+
+      if (moveDirection !== previousMoveDirection) {
+        tcpConnection.write(`Move: ${moveDirection}`);
+        clearInterval(moveCommand);
+        moveCommand = setInterval(() => {
+          tcpConnection.write(`Move: ${moveDirection}`);
+        }, 100);
+        log(moveDirection);
+        previousMoveDirection = moveDirection;
       }
     });
 
